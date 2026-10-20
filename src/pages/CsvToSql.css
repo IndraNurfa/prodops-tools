@@ -1,0 +1,215 @@
+/* ─── Hero ──────────────────────────────────────────────────────────────── */
+.csv-tool .hero {
+  text-align: center;
+  padding: 32px 0 40px;
+}
+
+.csv-tool .hero h1 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: var(--on-dark);
+}
+
+.csv-tool .hero p {
+  margin-top: 8px;
+  font-size: 15px;
+  color: var(--body-muted);
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── Upload card ───────────────────────────────────────────────────────── */
+.action-card {
+  background: var(--tile-1);
+  border: 1.5px dashed var(--hairline);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-xl) var(--space-lg);
+  margin-bottom: var(--space-xl);
+  text-align: center;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.action-card.dragover {
+  border-color: var(--primary-on-dark);
+  background: rgba(41, 151, 255, 0.08);
+}
+
+.drop-hint {
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -0.374px;
+  color: var(--body-muted);
+  margin-bottom: 6px;
+}
+
+.drop-sub {
+  font-size: 14px;
+  letter-spacing: -0.224px;
+  color: var(--ink-muted-48);
+  margin-bottom: 18px;
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.action-meta {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.224px;
+  color: var(--ink-muted-48);
+  min-height: 1.3em;
+}
+
+.action-meta.ok { color: var(--primary-on-dark); }
+.action-meta.err { color: #ff6b6b; }
+
+.file-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--on-dark);
+  border: 1px solid var(--hairline);
+  border-radius: var(--rounded-pill);
+  padding: 11px 22px;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -0.374px;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s;
+}
+
+.file-btn:active {
+  transform: scale(0.95);
+}
+
+.file-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.file-btn input {
+  display: none;
+}
+
+.file-btn svg {
+  flex-shrink: 0;
+}
+
+/* ─── Panels ────────────────────────────────────────────────────────────── */
+.panels {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.panel {
+  background: var(--tile-1);
+  border: 1px solid var(--hairline);
+  border-radius: var(--rounded-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-xl);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--divider-soft);
+}
+
+.panel-header h2 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.224px;
+  color: var(--on-dark);
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.12px;
+  color: var(--ink-muted-48);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 3px 10px;
+  border-radius: var(--rounded-pill);
+}
+
+.table-wrap {
+  overflow: auto;
+  max-height: 380px;
+}
+
+.empty {
+  padding: 64px 24px;
+  text-align: center;
+  color: var(--ink-muted-48);
+  font-size: 17px;
+  letter-spacing: -0.374px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  letter-spacing: -0.12px;
+  white-space: nowrap;
+}
+
+th, td {
+  padding: 8px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--divider-soft);
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+th {
+  font-weight: 500;
+  color: var(--body-muted);
+  background: var(--tile-2);
+  position: sticky;
+  top: 0;
+}
+
+td {
+  color: var(--on-dark);
+}
+
+.sql-actions {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--divider-soft);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sql-output {
+  width: 100%;
+  min-height: 280px;
+  max-height: 480px;
+  padding: 20px;
+  background: var(--tile-3);
+  color: var(--body-muted);
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.55;
+  letter-spacing: -0.08px;
+  resize: vertical;
+  outline: none;
+  display: block;
+}
+
+.sql-output::placeholder {
+  color: var(--ink-muted-48);
+}
