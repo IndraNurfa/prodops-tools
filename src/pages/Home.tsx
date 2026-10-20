@@ -30,6 +30,14 @@ const tools: Tool[] = [
     status: 'ready',
     external: true,
   },
+  {
+    id: 'mine-tools',
+    title: 'ToolsBox',
+    description: 'Kumpulan tools yang dibuat sendiri — open in a new tab.',
+    path: 'https://mine-tools-umber.vercel.app/',
+    status: 'ready',
+    external: true,
+  },
 ];
 
 export default function Home() {

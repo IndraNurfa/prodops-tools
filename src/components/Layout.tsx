@@ -19,6 +19,9 @@ export default function Layout() {
           <a href="https://clik-helpers.vercel.app/" target="_blank" rel="noopener noreferrer">
             CLIK Helpers
           </a>
+          <a href="https://mine-tools-umber.vercel.app/" target="_blank" rel="noopener noreferrer">
+            ToolsBox
+          </a>
         </div>
       </nav>
       <Outlet />
