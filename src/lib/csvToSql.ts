@@ -180,7 +180,7 @@ export function convertRows(rows: Record<string, string>[]): string {
       sqlVal(r.created_at, "date_iso"),
       sqlVal(r.updated_at, "date_iso"),
     ];
-    custRows.push("        (" + cVals.join(", ") + ")");
+    custRows.push("\t(" + cVals.join(", ") + ")");
 
     const lVals = [
       sqlVal(loanId),
@@ -214,7 +214,7 @@ export function convertRows(rows: Record<string, string>[]): string {
       sqlVal(r.created_at_loan, "date_iso"),
       sqlVal(r.updated_at_loan, "date_iso"),
     ];
-    loanRows.push("        (" + lVals.join(", ") + ")");
+    loanRows.push("\t(" + lVals.join(", ") + ")");
 
     const remarks = `Seeded from LMS agreement ${contractNo}`;
     const sVals = [
@@ -224,7 +224,7 @@ export function convertRows(rows: Record<string, string>[]): string {
       sqlVal(r.created_at_loan, "date_iso"),
       sqlVal(r.updated_at_loan, "date_iso"),
     ];
-    stateRows.push("        (" + sVals.join(", ") + ")");
+    stateRows.push("\t(" + sVals.join(", ") + ")");
 
     const isTax = ["true", "1"].includes(String(r.is_active_vehicle_tax || "").toLowerCase())
       ? "'1'"
@@ -263,60 +263,60 @@ export function convertRows(rows: Record<string, string>[]): string {
       sqlVal(r.loan_states_created_at, "date_iso"),
       sqlVal(r.loan_states_updated_at, "date_iso"),
     ];
-    collatRows.push("        (" + colVals.join(", ") + ")");
+    collatRows.push("\t(" + colVals.join(", ") + ")");
   }
 
   const sqlOut: string[] = [];
 
   sqlOut.push(
     "INSERT INTO customers_data_history (\n" +
-      "        id, customers_id, full_name, phone_number, email, regencies, nik,\n" +
-      "        ktp_image_url, selfie_image_url, dob, birthplace, gender, mother_maiden_name,\n" +
-      "        ktp_province, ktp_city, ktp_district, ktp_village, ktp_postcode, ktp_full_address,\n" +
-      "        marital_status, occupation, npwp_number,\n" +
-      "        current_province, current_city, current_district, current_village, current_postcode,\n" +
-      "        current_full_address, branch, branch_code, final_total_income,\n" +
-      "        is_already_sent_to_dleas, created_at, updated_at\n" +
-      "    )\n" +
-      "    VALUES\n" +
+      "\tid, customers_id, full_name, phone_number, email, regencies, nik,\n" +
+      "\tktp_image_url, selfie_image_url, dob, birthplace, gender, mother_maiden_name,\n" +
+      "\tktp_province, ktp_city, ktp_district, ktp_village, ktp_postcode, ktp_full_address,\n" +
+      "\tmarital_status, occupation, npwp_number,\n" +
+      "\tcurrent_province, current_city, current_district, current_village, current_postcode,\n" +
+      "\tcurrent_full_address, branch, branch_code, final_total_income,\n" +
+      "\tis_already_sent_to_dleas, created_at, updated_at\n" +
+      "\t)\n" +
+      "VALUES\n" +
       custRows.join(",\n") +
       ";\n"
   );
 
   sqlOut.push(
     "INSERT INTO loans (\n" +
-      "        id, reference_id, status, tenor, partner_id, customers_data_history_id,\n" +
-      "        contract_number, desired_amount, desired_disburse_amount, approved_amount,\n" +
-      "        installment, interest, flat_rate, effective_rate,\n" +
-      "        branch_leasing_id, branch_leasing, order_master_id, financing_agreement,\n" +
-      "        product_id, product_type, customer_target, loan_purpose, financing_type,\n" +
-      "        customer_type, collateral_type, installment_type, tenor_type, installment_config,\n" +
-      "        created_at, updated_at\n" +
-      "    )\n" +
-      "    VALUES\n" +
+      "\tid, reference_id, status, tenor, partner_id, customers_data_history_id,\n" +
+      "\tcontract_number, desired_amount, desired_disburse_amount, approved_amount,\n" +
+      "\tinstallment, interest, flat_rate, effective_rate,\n" +
+      "\tbranch_leasing_id, branch_leasing, order_master_id, financing_agreement,\n" +
+      "\tproduct_id, product_type, customer_target, loan_purpose, financing_type,\n" +
+      "\tcustomer_type, collateral_type, installment_type, tenor_type, installment_config,\n" +
+      "\tcreated_at, updated_at\n" +
+      "\t)\n" +
+      "VALUES\n" +
       loanRows.join(",\n") +
       ";\n"
   );
 
   sqlOut.push(
     "INSERT INTO loan_states (\n" +
-      "        loans_id, status, remarks, created_at, updated_at\n" +
-      "    )\n" +
-      "    VALUES\n" +
+      "\tloans_id, status, remarks, created_at, updated_at\n" +
+      "\t)\n" +
+      "VALUES\n" +
       stateRows.join(",\n") +
       ";\n"
   );
 
   sqlOut.push(
     "INSERT INTO collateral (\n" +
-      "        loan_id, brand, model, variant, year, plat_number, chassis_number, engine_number,\n" +
-      "        bpkb_number, stnk_number, status, collateral_name, collateral_ownership,\n" +
-      "        is_active_vehicle_tax, color, price, invoice_number, bpkb_ownership,\n" +
-      "        bpkb_ownership_nik, bpkb_ownership_name, bpkb_ownership_phone, bpkb_ownership_relation,\n" +
-      "        vehicle_type, car_type, car_category, sjmb_type, condition, transportation_type,\n" +
-      "        manufacture_country, created_at, updated_at\n" +
-      "    )\n" +
-      "    VALUES\n" +
+      "\tloan_id, brand, model, variant, year, plat_number, chassis_number, engine_number,\n" +
+      "\tbpkb_number, stnk_number, status, collateral_name, collateral_ownership,\n" +
+      "\tis_active_vehicle_tax, color, price, invoice_number, bpkb_ownership,\n" +
+      "\tbpkb_ownership_nik, bpkb_ownership_name, bpkb_ownership_phone, bpkb_ownership_relation,\n" +
+      "\tvehicle_type, car_type, car_category, sjmb_type, condition, transportation_type,\n" +
+      "\tmanufacture_country, created_at, updated_at\n" +
+      "\t)\n" +
+      "VALUES\n" +
       collatRows.join(",\n") +
       ";\n"
   );
