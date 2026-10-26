@@ -30,10 +30,18 @@ export function sqlVal(val: unknown, vtype: SqlValueType = "text"): string {
   }
 
   if (vtype === "date_iso") {
-    if (str.endsWith("Z") && !str.endsWith(".000Z")) {
-      str = str.slice(0, -1) + ".000Z";
+    if (!val) {
+      return "NULL";
     }
-    return `'${str}'`;
+    try {
+      const date = new Date(String(val));
+      if (isNaN(date.getTime())) {
+        throw new Error(`Invalid date value: ${val}`);
+      }
+      return "'" + date.toISOString() + "'";
+    } catch (error: any) {
+      throw new Error(`Failed to convert date to ISO string: ${val}. Error: ${error.message}`);
+    }
   }
 
   const escaped = str.replace(/'/g, "''");
