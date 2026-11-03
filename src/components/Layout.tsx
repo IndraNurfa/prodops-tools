@@ -16,11 +16,17 @@ export default function Layout() {
           <Link to="/csv-to-sql" className={pathname === '/csv-to-sql' ? 'active' : ''}>
             CSV → SQL
           </Link>
+          <Link
+            to="/notification-report"
+            className={pathname === '/notification-report' ? 'active' : ''}
+          >
+            Notif Report
+          </Link>
           <a href="https://clik-helpers.vercel.app/" target="_blank" rel="noopener noreferrer">
             CLIK Helpers
           </a>
           <a href="https://mine-tools-umber.vercel.app/" target="_blank" rel="noopener noreferrer">
-            ToolsBox
+            Mine Tools
           </a>
         </div>
       </nav>

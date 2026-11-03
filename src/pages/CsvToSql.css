@@ -29,7 +29,9 @@
   padding: var(--space-xl) var(--space-lg);
   margin-bottom: var(--space-xl);
   text-align: center;
-  transition: border-color 0.15s, background 0.15s;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
 }
 
 .action-card.dragover {
@@ -69,8 +71,12 @@
   min-height: 1.3em;
 }
 
-.action-meta.ok { color: var(--primary-on-dark); }
-.action-meta.err { color: #ff6b6b; }
+.action-meta.ok {
+  color: var(--primary-on-dark);
+}
+.action-meta.err {
+  color: #ff6b6b;
+}
 
 .file-btn {
   display: inline-flex;
@@ -85,7 +91,9 @@
   font-weight: 400;
   letter-spacing: -0.374px;
   cursor: pointer;
-  transition: transform 0.12s ease, background 0.15s;
+  transition:
+    transform 0.12s ease,
+    background 0.15s;
 }
 
 .file-btn:active {
@@ -165,7 +173,8 @@ table {
   white-space: nowrap;
 }
 
-th, td {
+th,
+td {
   padding: 8px 14px;
   text-align: left;
   border-bottom: 1px solid var(--divider-soft);
@@ -186,11 +195,50 @@ td {
   color: var(--on-dark);
 }
 
-.sql-actions {
-  padding: 12px 20px;
-  border-bottom: 1px solid var(--divider-soft);
-  display: flex;
-  justify-content: flex-end;
+.btn-copy-sql {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  font-family: var(--font-text);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.12px;
+  line-height: 1.2;
+  color: var(--on-dark);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--hairline);
+  border-radius: var(--rounded-pill);
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    transform 0.12s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn-copy-sql:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.btn-copy-sql:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.btn-copy-sql:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.btn-copy-sql.copied {
+  color: var(--primary-on-dark);
+  border-color: rgba(41, 151, 255, 0.35);
+  background: rgba(41, 151, 255, 0.12);
+}
+
+.btn-copy-sql svg {
+  flex-shrink: 0;
 }
 
 .sql-output {
