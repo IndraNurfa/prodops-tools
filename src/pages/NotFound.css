@@ -1,0 +1,53 @@
+.notfound-page {
+  /* override .page constraints so true viewport centering works */
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 16px !important;
+  min-height: calc(100vh - 44px);
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.notfound-code {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 8vw, 64px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--on-dark);
+  margin: 0 0 16px;
+  opacity: 0.92;
+}
+
+.notfound-page h1 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: var(--on-dark);
+  margin: 0 0 8px;
+}
+
+.notfound-sub {
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--body-muted);
+  margin: 0 0 28px;
+  max-width: 320px;
+}
+
+.notfound-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary-on-dark);
+  transition: opacity 0.12s;
+}
+
+.notfound-link:hover {
+  opacity: 0.85;
+}

@@ -16,24 +16,37 @@ interface Tool {
 const tools: Tool[] = [
   {
     id: 'csv-to-sql',
-    title: 'CSV → SQL Converter',
-    description:
-      'Upload a CSV and generate INSERT statements for customers_data_history, loans, loan_states, and collateral.',
+    title: 'CSV → SQL',
+    description: 'CSV to INSERT statements for manual loans car.',
     path: '/csv-to-sql',
     status: 'ready',
   },
   {
+    id: 'notification-report',
+    title: 'Notification Report',
+    description: 'Lookup reports by phone.',
+    path: '/notification-report',
+    status: 'ready',
+  },
+  {
+    id: 'rbac-dus',
+    title: 'Insert Users DUS',
+    description: 'Query insert from rbac to dus.',
+    path: '/rbac-dus',
+    status: 'coming-soon',
+  },
+  {
     id: 'clik-helpers',
     title: 'CLIK Helpers',
-    description: 'External tools for CLIK workflows — open in a new tab.',
+    description: 'External CLIK workflow tools.',
     path: 'https://clik-helpers.vercel.app/',
     status: 'ready',
     external: true,
   },
   {
     id: 'mine-tools',
-    title: 'ToolsBox',
-    description: 'Kumpulan tools yang dibuat sendiri — open in a new tab.',
+    title: 'Tollbox',
+    description: 'Personal tools collection.',
     path: 'https://mine-tools-umber.vercel.app/',
     status: 'ready',
     external: true,
@@ -43,29 +56,26 @@ const tools: Tool[] = [
 export default function Home() {
   return (
     <div className="page home-page">
-      <header className="home-hero">
-        <h1>Tools Hub</h1>
-        <p>
-          Fast, client-side utilities. No backend, no database — everything runs in your browser.
-        </p>
+      <header className="home-header">
+        <h1>Tools</h1>
+        <p>{tools.filter((t) => t.status === 'ready').length} available</p>
       </header>
 
-      <section className="tools-grid">
+      <section className="tools-grid" aria-label="Tool launcher">
         {tools.map((tool) => {
           const className = `tool-card ${tool.status === 'coming-soon' ? 'disabled' : ''}`;
           const content = (
             <>
-              <div className="tool-card-header">
+              <div className="tool-card-top">
                 <h2>{tool.title}</h2>
-                {tool.status === 'ready' && <span className="badge ready">Ready</span>}
-                {tool.status === 'coming-soon' && <span className="badge soon">Coming soon</span>}
+                {tool.external && (
+                  <span className="badge external" title="Opens in new tab">
+                    External
+                  </span>
+                )}
+                {tool.status === 'coming-soon' && <span className="badge soon">Soon</span>}
               </div>
               <p>{tool.description}</p>
-              {tool.status === 'ready' && (
-                <span className="tool-cta">
-                  {tool.external ? 'Open external →' : 'Open tool →'}
-                </span>
-              )}
             </>
           );
 

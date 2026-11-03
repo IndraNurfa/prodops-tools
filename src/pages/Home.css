@@ -1,101 +1,97 @@
-.home-page .home-hero {
-  text-align: center;
-  padding: 48px 0 56px;
-}
+/* Launcher — compact, not a marketing page */
 
-.home-page .home-hero h1 {
-  font-family: var(--font-display);
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.28px;
-  color: var(--on-dark);
-}
-
-.home-page .home-hero p {
-  margin-top: 12px;
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 1.47;
-  letter-spacing: -0.374px;
-  color: var(--body-muted);
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.tool-card {
-  display: block;
-  background: var(--tile-1);
-  border: 1px solid var(--hairline);
-  border-radius: var(--rounded-lg);
-  padding: 24px;
-  transition: border-color 0.15s, background 0.15s, transform 0.12s;
-}
-
-.tool-card:hover:not(.disabled) {
-  border-color: var(--primary-on-dark);
-  background: rgba(41, 151, 255, 0.06);
-  transform: translateY(-1px);
-}
-
-.tool-card.disabled {
-  opacity: 0.55;
-  pointer-events: none;
-}
-
-.tool-card-header {
+.home-page .home-header {
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 10px;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--divider-soft);
 }
 
-.tool-card h2 {
+.home-page .home-header h1 {
   font-family: var(--font-display);
-  font-size: 19px;
+  font-size: 22px;
   font-weight: 600;
   letter-spacing: -0.3px;
   color: var(--on-dark);
 }
 
-.tool-card p {
-  font-size: 14px;
-  line-height: 1.45;
-  letter-spacing: -0.2px;
-  color: var(--body-muted);
-  margin-bottom: 16px;
+.home-page .home-header p {
+  font-size: 13px;
+  color: var(--ink-muted-48);
 }
 
-.tool-cta {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--primary-on-dark);
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.tool-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--tile-1);
+  border: 1px solid var(--hairline);
+  border-radius: var(--rounded-md);
+  padding: 16px 18px;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+  min-height: 88px;
+}
+
+.tool-card:hover:not(.disabled) {
+  border-color: var(--primary-on-dark);
+  background: rgba(41, 151, 255, 0.06);
+}
+
+.tool-card.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.tool-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tool-card h2 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
   letter-spacing: -0.2px;
+  color: var(--on-dark);
+}
+
+.tool-card p {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--body-muted);
 }
 
 .badge {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: -0.1px;
-  padding: 3px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  padding: 2px 7px;
   border-radius: var(--rounded-pill);
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.badge.ready {
-  background: rgba(41, 151, 255, 0.15);
-  color: var(--primary-on-dark);
+.badge.external {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ink-muted-48);
+  border: 1px solid var(--hairline);
 }
 
 .badge.soon {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--ink-muted-48);
 }
